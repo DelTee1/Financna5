@@ -1,0 +1,23 @@
+workflows:
+  ios-testflight:
+    name: iOS Build & Distribute via TestFlight
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+      vars:
+        APP_ID: com.example.financnaapp   # <- nahraď tvojím bundle ID
+    scripts:
+      - name: Get Flutter packages
+        script: flutter pub get
+      - name: Build iOS release
+        script: flutter build ipa --release
+    artifacts:
+      - build/ios/ipa/*.ipa
+    publishing:
+      app_store_connect:
+        apple_id: tvoje@appleid.sk
+        bundle_id: $APP_ID
+        api_key_id: $APP_STORE_KEY_ID
+        issuer_id: $APP_STORE_ISSUER_ID
+        api_private_key: $APP_STORE_PRIVATE_KEY
