@@ -1,17 +1,20 @@
+
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Finančná aplikácia',
+      title: 'Finančná App',
       home: Scaffold(
-        appBar: AppBar(title: Text('Finančná aplikácia')),
-        body: Center(child: Text('Vitaj v tvojej finančnej aplikácii')),
+        appBar: AppBar(title: const Text('Finančná App')),
+        body: const Center(child: Text('Vitaj v aplikácii!')),
       ),
     );
   }
